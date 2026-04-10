@@ -1,0 +1,92 @@
+{
+  "decision": "ROLL_BACK",
+  "rationale": {
+    "primary_driver": "Crash rate increased by 384% post-launch",
+    "metric_references": {
+      "crash_rate": "2.3% (was 0.5%)",
+      "d1_retention": "47.1% (delta: -14%)",
+      "support_tickets": "143/day (was 48)"
+    },
+    "feedback_summary": "57.1% negative feedback; 9 crash reports",
+    "vote_tally": {
+      "PROCEED": 0,
+      "PAUSE": 1,
+      "ROLL_BACK": 3
+    }
+  },
+  "risk_register": [
+    {
+      "risk": "Continued high crash rate will accelerate user churn",
+      "severity": "high",
+      "mitigation": "Roll back to previous stable version or deploy hotfix within 4 hours",
+      "owner": "Engineering"
+    },
+    {
+      "risk": "Poor API performance driving negative user experience",
+      "severity": "medium",
+      "mitigation": "Scale backend resources and optimize critical paths",
+      "owner": "Product"
+    },
+    {
+      "risk": "Elevated churn will impact LTV and revenue targets",
+      "severity": "high",
+      "mitigation": "Proactive outreach to at-risk users with retention offers",
+      "owner": "Product"
+    }
+  ],
+  "action_plan": [
+    {
+      "action": "Immediately halt further rollout to new users",
+      "owner": "Engineering",
+      "timeframe": "0-2 hours"
+    },
+    {
+      "action": "Root cause analysis of crash spike by device/OS",
+      "owner": "Engineering",
+      "timeframe": "4-8 hours"
+    },
+    {
+      "action": "Deploy crash rate hotfix or roll back to v3.1",
+      "owner": "Engineering",
+      "timeframe": "12-24 hours"
+    },
+    {
+      "action": "Update status page and prepare customer comms",
+      "owner": "Marketing/Comms",
+      "timeframe": "2-4 hours"
+    },
+    {
+      "action": "Review payment failure logs with payment provider",
+      "owner": "Product",
+      "timeframe": "24 hours"
+    }
+  ],
+  "communication_plan": {
+    "internal": [
+      "Slack #eng-alerts: Current crash rate and mitigation status",
+      "Daily war room standup at 10am until resolved",
+      "Post-mortem scheduled for end of week"
+    ],
+    "external": [
+      "Status page incident report: 'Performance degradation under investigation'",
+      "If decision is PAUSE/ROLLBACK: Email to affected users acknowledging issues",
+      "Support team script for crash/payment complaints"
+    ]
+  },
+  "confidence_score": 90,
+  "confidence_increase": {
+    "would_increase_confidence": [
+      "Root cause analysis of crash pattern completed",
+      "48 hours of stable metrics post-fix",
+      "Payment success rate returns to 99%+",
+      "Support ticket volume decreases by 50%"
+    ]
+  },
+  "timestamp": "2026-04-10T10:46:30.136028",
+  "agents_consulted": [
+    "pm",
+    "analyst",
+    "comms",
+    "risk"
+  ]
+}
