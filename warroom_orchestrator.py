@@ -52,27 +52,27 @@ class WarRoomOrchestrator:
         # Step 1: Data Analyst presents metrics
         self._log("analysis", "Data Analyst", "Analyzing metrics and detecting anomalies...")
         analyst_output = self.agents['analyst'].analyze(self.dashboard)
-        print(f"\n📊 Data Analyst Findings:")
+        print(f"\n Data Analyst Findings:")
         print(f"   Key finding: {analyst_output['key_finding']}")
         
         # Step 2: Product Manager frames success criteria
         self._log("analysis", "Product Manager", "Evaluating against success criteria...")
         pm_output = self.agents['pm'].analyze(self.dashboard)
-        print(f"\n📋 Product Manager Assessment:")
+        print(f"\n Product Manager Assessment:")
         print(f"   Critical failures: {pm_output['critical_failures']}")
         print(f"   Recommendation: {pm_output['recommendation']}")
         
         # Step 3: Marketing/Comms assesses perception
         self._log("analysis", "Marketing/Comms", "Analyzing user sentiment...")
         comms_output = self.agents['comms'].analyze(self.dashboard)
-        print(f"\n📢 Marketing/Comms Assessment:")
+        print(f"\n Marketing/Comms Assessment:")
         print(f"   Sentiment: {comms_output['customer_perception']}")
         print(f"   Narrative risk: {comms_output['narrative_risk']}")
         
         # Step 4: Risk/Critic challenges and identifies risks
         self._log("analysis", "Risk/Critic", "Identifying risks and challenging assumptions...")
         risk_output = self.agents['risk'].analyze(self.dashboard)
-        print(f"\n⚠️ Risk/Critic Assessment:")
+        print(f"\n Risk/Critic Assessment:")
         print(f"   High risks: {len([r for r in risk_output['identified_risks'] if r['severity'] == 'high'])}")
         print(f"   Recommendation: {risk_output['recommendation']}")
         
@@ -239,8 +239,8 @@ class WarRoomOrchestrator:
 
 def main():
     """Entry point for the war room system."""
-    print("🚀 Starting PurpleMerit War Room System...")
-    print("📊 Loading dashboard data...")
+    print(" Starting PurpleMerit War Room System...")
+    print(" Loading dashboard data...")
     
     orchestrator = WarRoomOrchestrator()
     result = orchestrator.run()
@@ -254,7 +254,7 @@ def main():
     with open("war_room_decision.json", "w") as f:
         json.dump(result, f, indent=2, default=str)
     
-    print("\n✅ Decision saved to war_room_decision.json")
+    print("\n Decision saved to war_room_decision.json")
     
     # Print trace summary
     print("\n" + "="*60)
